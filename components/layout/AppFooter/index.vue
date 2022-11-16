@@ -1,15 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="app-footer">底部</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AppFooter',
 }
 </script>
 
 <style lang="scss">
-.home-page {
-  height: 100%;
+.app-footer {
+  height: 100px;
 }
 </style>

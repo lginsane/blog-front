@@ -1,15 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="menu-wrap">目录</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AppMenu',
 }
 </script>
 
 <style lang="scss">
-.home-page {
-  height: 100%;
+.menu-wrap {
+  height: 100px;
 }
 </style>

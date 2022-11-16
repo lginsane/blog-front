@@ -1,15 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="app-header">顶部</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AppHeader',
 }
 </script>
 
 <style lang="scss">
-.home-page {
-  height: 100%;
+.app-header {
+  height: 100px;
 }
 </style>

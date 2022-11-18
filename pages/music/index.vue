@@ -1,16 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="music-page">音乐</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  loading: true,
+  name: 'MusicPage',
 }
 </script>
 
 <style lang="less">
-.home-page {
+.music-page {
   height: 100%;
 }
 </style>

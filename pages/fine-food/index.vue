@@ -1,16 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="fine-food-page">美食</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  loading: true,
+  name: 'FineFoodPage',
 }
 </script>
 
 <style lang="less">
-.home-page {
+.fine-food-page {
   height: 100%;
 }
 </style>

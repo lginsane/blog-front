@@ -1,16 +1,15 @@
 <template>
-  <div class="home-page">首页</div>
+  <div class="diary-page">日记</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  loading: true,
+  name: 'DiaryPage',
 }
 </script>
 
 <style lang="less">
-.home-page {
+.diary-page {
   height: 100%;
 }
 </style>

@@ -1,6 +1,12 @@
 <template>
   <div class="app-menu flex">
-    <div class="menu-task"></div>
+    <div class="app-menu-btn">
+      <div class="app-menu-btn-wrap" :class="isOpen && 'active'" @click="switchOpenNav">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
+    </div>
     <ul class="app-menu-list">
       <li v-for="nav in navList" :key="nav.path" class="app-menu-item">
         <nuxt-link
@@ -12,18 +18,29 @@
         </nuxt-link>
       </li>
     </ul>
-    <AppSearch></AppSearch>
+    <div v-if="isOpen" class="app-menu-screen">
+      <ul class="app-menu-screen-list">
+        <li v-for="nav in navList" :key="nav.path" class="app-menu-screen-item" @click="switchOpenNav">
+          <nuxt-link
+            :to="nav.path"
+            class="app-menu-screen-item__link"
+            :active-class="activePath === nav.path ? 'active' : ''"
+          >
+            {{ nav.name }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref, watch } from '@nuxtjs/composition-api'
-import AppSearch from './search.vue'
 export default {
   name: 'AppMenu',
-  components: { AppSearch },
   setup() {
     const activePath = ref('')
+    const isOpen = ref(false)
     if (process.client) {
       watch(
         () => window.$nuxt.$route,
@@ -58,9 +75,19 @@ export default {
         path: '/fine-food',
       },
     ])
+    const switchOpenNav = () => {
+      isOpen.value = !isOpen.value
+      if (isOpen.value) {
+        document.body.style = 'overflow: hidden;'
+      } else {
+        document.body.style = ''
+      }
+    }
     return {
       navList,
       activePath,
+      isOpen,
+      switchOpenNav
     }
   },
 }
@@ -68,10 +95,11 @@ export default {
 
 <style lang="less">
 .app-menu {
-  padding: 0 10px;
   &-list {
-    display: flex;
-    margin-right: 10px;
+    display: none;
+    @media screen and (min-width: @breakpoints-md) {
+      display: flex;
+    }
   }
   &-item {
     line-height: @heightHeader;
@@ -92,14 +120,13 @@ export default {
         height: 2px;
         width: 0;
         border-radius: 2px;
-        background-image: @color;
+        background: @color;
         transition: all 0.3s ease;
       }
       &:hover {
         background: @color;
         background-clip: text;
         -webkit-background-clip: text;
-        color: transparent;
         color: @colorPrimary;
         &::after {
           width: 100%;
@@ -117,6 +144,120 @@ export default {
           left: 0;
         }
       }
+    }
+  }
+  &-screen {
+    position: fixed;
+    top: calc(@heightHeader + 1px);
+    height: calc(100vh - @heightHeader - 1px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 32px;
+    width: 100%;
+    background-color: #ffffff;
+    overflow-y: auto;
+    transition: background-color .5s;
+    pointer-events: auto;
+    &-list {
+      display: flex;
+      flex-direction: column;
+    }
+    &-item {
+      line-height: @heightHeader;
+      display: inline-block;
+      &__link {
+        display: block;
+        line-height: @heightHeader;
+        position: relative;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: color 0.25s ease;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 1px;
+          width: 0;
+          border-radius: 2px;
+          background: @colorText-3;
+          transition: all 0.3s ease;
+          width: 100%;
+        }
+        &.active {
+          color: @colorPrimary;
+          font-weight: 600;
+          -webkit-background-clip: text;
+          &::after {
+            width: 100%;
+            left: 0;
+            height: 2px;
+            background-image: @color;
+          }
+        }
+      }
+    }
+  }
+  &-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: @heightHeader;
+    &-wrap {
+      position: relative;
+      width: 16px;
+      height: 14px;
+      overflow: hidden;
+      .top,
+      .middle,
+      .bottom {
+        position: absolute;
+        width: 16px;
+        height: 1px;
+        background-color: @colorText-1;
+        transition: top .25s,background-color .5s,transform .25s;
+      }
+      .top {
+        top: 0;
+        left: 0;
+        transform: translate(0);
+      }
+      .middle {
+        top: 6px;
+        left: 0;
+        transform: translate(8px);
+      }
+      .bottom {
+        top: 12px;
+        left: 0;
+        transform: translate(4px);
+      }
+      &.active {
+        .top,
+        .middle,
+        .bottom {
+          background-color: @colorText-2;
+          transition: top .25s,background-color .25s,transform .25s;
+        }
+        .top {
+          top: 6px;
+          transform: translate(0) rotate(225deg);
+        }
+        .middle {
+          top: 6px;
+          transform: translate(16px);
+        }
+        .bottom {
+          top: 6px;
+          transform: translate(0) rotate(135deg);
+        }
+      }
+    }
+    @media screen and (min-width: @breakpoints-md) {
+      display: none;
     }
   }
 }

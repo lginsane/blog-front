@@ -1,9 +1,12 @@
 <template>
   <div class="app-header shadow-bottom">
     <div class="lg-container">
-      <div class="app-header__content">
+      <div class="app-header-container">
         <AppLogo></AppLogo>
-        <AppMenu></AppMenu>
+        <div class="app-header-content">
+          <AppSearch></AppSearch>
+          <AppMenu></AppMenu>
+        </div>
       </div>
     </div>
   </div>
@@ -11,11 +14,13 @@
 
 <script>
 import AppMenu from './menu'
+import AppSearch from './search'
 import AppLogo from './logo'
 export default {
   name: 'AppHeader',
   components: {
     AppMenu,
+    AppSearch,
     AppLogo,
   },
 }
@@ -32,11 +37,17 @@ export default {
   color: @colorTextTitle;
   transition: color 0.2s;
   transition: transform 0.8s;
-  &__content {
+  &-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: @heightHeader;
+  }
+  &-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
   }
 }
 </style>

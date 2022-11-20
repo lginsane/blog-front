@@ -48,6 +48,7 @@ export default {
     '@pinia/nuxt',
     '@nuxtjs/toast',
     '@nuxtjs/style-resources',
+    '@nuxtjs/device'
   ],
 
   styleResources: {
@@ -90,7 +91,9 @@ export default {
     baseUrl: globalConfig.baseURL,
   },
   telemetry: false,
-
+  device: {
+    refreshOnResize: true
+  },
   loading: {
     color: 'red',
     height: '4px',

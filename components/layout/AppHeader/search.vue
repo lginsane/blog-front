@@ -1,16 +1,43 @@
 <template>
   <div class="app-search">
-    <div class="app-search-button">
+    <div class="app-search-button" @click="switchOpenNav">
       <i class="el-icon-search"></i>
       <span class="title">搜索</span>
-      <span class="keyboard">Ctrl+K</span>
+      <span v-if="$device.isWindows" class="keyboard">Ctrl+K</span>
+      <span v-if="$device.isMacOS" class="keyboard">⌘+K</span>
+    </div>
+    <div v-if="isOpen" class="search-screen" @click="switchOpenNav">
+      <div class="search-modal" @click.stop="">
+        <header class="search-bar">
+
+        </header>
+        <div class="search-list">
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from '@nuxtjs/composition-api'
 export default {
   name: 'AppSearch',
+  setup() {
+    const isOpen = ref(false)
+    const switchOpenNav = () => {
+      isOpen.value = !isOpen.value
+      if (isOpen.value) {
+        document.body.style = 'overflow: hidden;'
+      } else {
+        document.body.style = ''
+      }
+    }
+    return {
+      isOpen,
+      switchOpenNav,
+    }
+  },
 }
 </script>
 
@@ -19,39 +46,88 @@ export default {
   height: @heightHeader;
   display: flex;
   align-items: center;
-  .app-search-button {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    padding: 0 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #f9f9f9;
-    box-sizing: border-box;
-    &:hover {
-      border: 1px solid @colorPrimary;
-    }
+  padding: 0 8px;
+  &-button {
+    border: none;
+    background-color: transparent;
     cursor: pointer;
     .el-icon-search {
-      color: @colorText-2;
+      color: @colorText-1;
     }
     .title {
-      font-size: 13px;
-      color: @colorText-2;
-      margin-left: 4px;
-      margin-right: 12px;
-      line-height: 1;
+      display: none;
     }
     .keyboard {
-      border: 1px solid @colorBorder;
-      color: @colorText-2;
-      padding: 0 6px;
-      display: inline-flex;
-      align-items: center;
-      height: 22px;
-      border-radius: 4px;
-      font-size: 12px;
+      display: none;
     }
+    @media screen and (min-width: @breakpoints-md) {
+      border: 1px solid #f9f9f9;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      .app-search-button:hover {
+        border: 1px solid @colorPrimary;
+      }
+      .title {
+        font-size: 13px;
+        color: @colorText-2;
+        margin-left: 4px;
+        margin-right: 12px;
+        line-height: 1;
+        display: inline-block;
+      }
+      .keyboard {
+        border: 1px solid @colorBorder;
+        color: @colorText-2;
+        padding: 0 6px;
+        display: inline-flex;
+        align-items: center;
+        height: 22px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+  @media screen and (min-width: @breakpoints-lg) {
+    padding-left: 32px;
+  }
+  @media screen and (min-width: @breakpoints-md) {
+    padding-left: 24px;
+    flex-grow: 1;
+  }
+}
+.search-screen {
+  background-color: rgba(101, 108, 133, 0.8);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 200;
+}
+.search-modal {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  flex-direction: column;
+  position: relative;
+  box-shadow: inset 1px 1px 0 0 hsla(0,0%,100%,.5),0 3px 8px 0 #555a64;
+  border-radius: 6px;
+  margin: 60px auto auto;
+  max-width: 560px;
+  .search-list {
+    max-height: 50vh;
+    min-height: 150px;
+  }
+  @media screen and (max-width: @breakpoints-md) {
+    border-radius: 0;
+    box-shadow: none;
+    height: 100vh;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
   }
 }
 </style>

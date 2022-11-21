@@ -48,7 +48,7 @@ export default {
     '@pinia/nuxt',
     '@nuxtjs/toast',
     '@nuxtjs/style-resources',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
   ],
 
   styleResources: {
@@ -92,7 +92,7 @@ export default {
   },
   telemetry: false,
   device: {
-    refreshOnResize: true
+    refreshOnResize: true,
   },
   loading: {
     color: 'red',

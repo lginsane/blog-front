@@ -14,8 +14,8 @@
             placeholder="请输入搜索内容"
             clearable
           ></el-input>
-          <div class="cancel-btn" @click="handleCancel"
-            >取消</div
+          <el-button class="cancel-btn" type="text" @click="handleCancel"
+            >取消</el-button
           >
         </header>
         <div v-if="searchList.length" class="search-list">
@@ -26,16 +26,18 @@
           >
             <div class="search-item-type">{{ item.title }}</div>
             <div class="search-item-wrap">
-              <div class="search-item-content shadow-block" v-for="(it, i) in item.list" :key="i">
-                <div class="search-item-content__name">{{it.name}}</div>
-                <div class="search-item-content__tag">{{it.tag}}</div>
+              <div
+                class="search-item-content shadow-block"
+                v-for="(it, i) in item.list"
+                :key="i"
+              >
+                <div class="search-item-content__name">{{ it.name }}</div>
+                <div class="search-item-content__tag">{{ it.tag }}</div>
               </div>
             </div>
           </div>
         </div>
-        <div v-if="isEmpty" class="search-empty">
-          没有搜索结果
-        </div>
+        <div v-if="isEmpty" class="search-empty">没有搜索结果</div>
       </div>
     </div>
   </div>
@@ -65,28 +67,28 @@ export default {
         list: [
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
           },
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
           },
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
           },
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
@@ -98,11 +100,11 @@ export default {
         list: [
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
-          }
+          },
         ],
       },
       {
@@ -110,7 +112,7 @@ export default {
         list: [
           {
             name: '文章名称',
-            tag: '标签'
+            tag: '标签',
           },
           {
             name: '文章名称',
@@ -228,6 +230,10 @@ export default {
       font-size: 16px;
       color: @colorPrimary;
       width: 50px;
+      display: none;
+      @media screen and (max-width: @breakpoints-md) {
+        display: block;
+      }
     }
   }
   .search-list {

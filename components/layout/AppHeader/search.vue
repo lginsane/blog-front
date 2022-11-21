@@ -172,7 +172,7 @@ export default {
       padding: 0 10px;
       border-radius: 8px;
       background-color: #f9f9f9;
-      .app-search-button:hover {
+      &:hover {
         border: 1px solid @colorPrimary;
       }
       .title {

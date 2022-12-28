@@ -20,8 +20,12 @@ module.exports = {
     'nuxt/no-cjs-in-config': 0,
     'vue/no-mutating-props': 0,
     'no-new': 0,
-    "indent": ["error", 2, {
-      "SwitchCase": 1
-    }]
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
   },
 }

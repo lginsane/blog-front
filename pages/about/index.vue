@@ -1,20 +1,19 @@
 <template>
-  <div class="home-page">
+  <div class="about-page">
     <div class="lg-container">
-      首页
+      关于我
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  loading: true,
+  name: 'AboutPage',
 }
 </script>
 
 <style lang="less">
-.home-page {
-  height: 1500px;
+.about-page {
+  height: 100%;
 }
 </style>

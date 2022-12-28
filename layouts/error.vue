@@ -4,7 +4,7 @@
       <div v-if="error.statusCode == 404">
         <p><span>4</span><span>0</span><span>4</span></p>
         <p>{{ error.message }}</p>
-        <nuxt-link :to="{name:'index'}" class="backIndex">
+        <nuxt-link :to="{ name: 'index' }" class="backIndex">
           返回首页
         </nuxt-link>
       </div>
@@ -12,7 +12,7 @@
         <p><span>5</span><span>0</span><span>0</span></p>
         <p>{{ error.message }}</p>
         <p>
-          <nuxt-link :to="{name:'index'}" class="backIndex">
+          <nuxt-link :to="{ name: 'index' }" class="backIndex">
             返回首页
           </nuxt-link>
         </p>
@@ -26,14 +26,14 @@ export default {
   props: ['error'],
   head() {
     return {
-      title: `哎呀出错了~`
+      title: `哎呀出错了~`,
     }
   },
-  layout: '404'
+  layout: '404',
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @color: #fff;
 @bg: #2e2c34;
 

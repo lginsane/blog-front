@@ -1,7 +1,11 @@
 <template>
   <div class="app-menu flex">
     <div class="app-menu-btn">
-      <div class="app-menu-btn-wrap" :class="isOpen && 'active'" @click="switchOpenNav">
+      <div
+        class="app-menu-btn-wrap"
+        :class="isOpen && 'active'"
+        @click="switchOpenNav"
+      >
         <span class="top"></span>
         <span class="middle"></span>
         <span class="bottom"></span>
@@ -20,7 +24,12 @@
     </ul>
     <div v-if="isOpen" class="app-menu-screen">
       <ul class="app-menu-screen-list">
-        <li v-for="nav in navList" :key="nav.path" class="app-menu-screen-item" @click="switchOpenNav">
+        <li
+          v-for="nav in navList"
+          :key="nav.path"
+          class="app-menu-screen-item"
+          @click="switchOpenNav"
+        >
           <nuxt-link
             :to="nav.path"
             class="app-menu-screen-item__link"
@@ -63,17 +72,21 @@ export default {
         path: '/article',
       },
       {
-        name: '日记馆',
-        path: '/diary',
+        name: '关于我',
+        path: '/about',
       },
-      {
-        name: '音乐馆',
-        path: '/music',
-      },
-      {
-        name: '美食馆',
-        path: '/fine-food',
-      },
+      // {
+      //   name: '日记馆',
+      //   path: '/diary',
+      // },
+      // {
+      //   name: '音乐馆',
+      //   path: '/music',
+      // },
+      // {
+      //   name: '美食馆',
+      //   path: '/fine-food',
+      // },
     ])
     const switchOpenNav = () => {
       isOpen.value = !isOpen.value
@@ -87,7 +100,7 @@ export default {
       navList,
       activePath,
       isOpen,
-      switchOpenNav
+      switchOpenNav,
     }
   },
 }
@@ -148,8 +161,8 @@ export default {
   }
   &-screen {
     position: fixed;
-    top: calc(@heightHeader + 1px);
-    height: calc(100vh - @heightHeader - 1px);
+    // top: calc(@heightHeader + 1px);
+    // height: calc(100vh - @heightHeader - 1px);
     right: 0;
     bottom: 0;
     left: 0;
@@ -157,7 +170,7 @@ export default {
     width: 100%;
     background-color: #ffffff;
     overflow-y: auto;
-    transition: background-color .5s;
+    transition: background-color 0.5s;
     pointer-events: auto;
     &-list {
       display: flex;
@@ -218,7 +231,7 @@ export default {
         width: 16px;
         height: 1px;
         background-color: @colorText-1;
-        transition: top .25s,background-color .5s,transform .25s;
+        transition: top 0.25s, background-color 0.5s, transform 0.25s;
       }
       .top {
         top: 0;
@@ -240,7 +253,7 @@ export default {
         .middle,
         .bottom {
           background-color: @colorText-2;
-          transition: top .25s,background-color .25s,transform .25s;
+          transition: top 0.25s, background-color 0.25s, transform 0.25s;
         }
         .top {
           top: 6px;

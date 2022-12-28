@@ -1,6 +1,6 @@
 <template>
   <div class="empty-container">
-    <div class="empty-wrap">{{title}}</div>
+    <div class="empty-wrap">{{ title }}</div>
   </div>
 </template>
 
@@ -11,13 +11,13 @@ export default {
   props: {
     text: {
       type: String,
-      default: '暂无数据'
-    }
+      default: '暂无数据',
+    },
   },
   setup() {
     const textArr = ref()
     return {
-      textArr
+      textArr,
     }
   },
 }

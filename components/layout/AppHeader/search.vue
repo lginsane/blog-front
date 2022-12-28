@@ -20,16 +20,16 @@
         </header>
         <div v-if="searchList.length" class="search-list">
           <div
-            class="search-item"
             v-for="(item, index) in searchList"
             :key="index"
+            class="search-item"
           >
             <div class="search-item-type">{{ item.title }}</div>
             <div class="search-item-wrap">
               <div
-                class="search-item-content shadow-block"
                 v-for="(it, i) in item.list"
                 :key="i"
+                class="search-item-content shadow-block"
               >
                 <div class="search-item-content__name">{{ it.name }}</div>
                 <div class="search-item-content__tag">{{ it.tag }}</div>

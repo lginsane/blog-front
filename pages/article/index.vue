@@ -31,30 +31,14 @@
             </div>
           </Card>
         </div>
-        <div class="article-wrap lg-col-md-45">
-          <div class="article-list">
-            <div
-              v-for="item in articleList"
-              :key="item.id"
-              class="article-item"
-            >
-              <div class="article-item-header">
-                <div class="title">标题</div>
-              </div>
-              <div class="article-item-content">
-                <div class="desc">描述</div>
-                <div class="coverImg"></div>
-              </div>
-              <div class="article-item-footer">
-                <div class="time">2020-10-10</div>
-                <div class="type">分类</div>
-                <div class="tag">标签</div>
-              </div>
-            </div>
-          </div>
-          <Loading :isShow="isLoading"></Loading>
-          <div v-if="noMore && !isLoading" class="no-more-wrap">没有更多了</div>
-          <div v-if="!noMore && !isLoading" class="more-btn">查看更多</div>
+        <div class="article-container lg-col-md-45">
+          <List
+            :data="articleList"
+            :load="initLoad"
+            :loading="loading"
+            :disabled="disabled"
+            :no-more="noMore"
+          ></List>
         </div>
       </div>
     </div>
@@ -62,43 +46,44 @@
 </template>
 
 <script>
-import { ref, onMounted, reactive, toRefs } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import Card from '@/components/base/Card/index.vue'
-import Loading from '@/components/base/Loading/index.vue'
+import List from '@/components/page/List/index.vue'
 export default {
   name: 'ArticlePage',
   components: {
     Card,
-    Loading,
+    List,
   },
   setup() {
     const articleList = ref([])
     const state = reactive({
       page: 1,
       pageSize: 10,
-      isLoading: false,
-      isError: false,
-      noMore: false,
     })
-    function load() {
-      state.isLoading = true
-      for (let i = 0; i < state.pageSize; i++) {
-        articleList.value.push({
-          id: i,
-        })
-      }
-      if (articleList.value.length > 30) {
-        state.noMore = true
-      }
-      state.page++
-      state.isLoading = false
+    const loading = ref(false)
+    const noMore = computed(() => articleList.value.length >= 20)
+    const disabled = computed(() => loading.value || noMore.value)
+    function initLoad() {
+      loading.value = true
+      setTimeout(() => {
+        for (let i = 0; i < state.pageSize; i++) {
+          articleList.value.push({
+            id: i,
+            title: '标题',
+            desc: '描述'
+          })
+        }
+        state.page++
+        loading.value = false
+      }, 2000);
     }
-    onMounted(() => {
-      load()
-    })
     return {
       articleList,
-      ...toRefs(state),
+      initLoad,
+      loading,
+      disabled,
+      noMore,
     }
   },
 }
@@ -157,67 +142,6 @@ export default {
           color: #666;
           font-size: 12px;
         }
-      }
-    }
-  }
-  .article-wrap {
-  }
-  .article-list {
-  }
-  .article-item {
-    background-color: #fff;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    padding: 5px 20px;
-    &-header {
-      padding: 10px 0;
-      .title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-      }
-    }
-    &-content {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #efefef;
-      padding: 15px 0;
-      @media screen and (max-width: @breakpoints-md) {
-        flex-direction: column;
-      }
-      .desc {
-        font-size: 16px;
-        color: #666;
-        min-height: 50px;
-      }
-      .coverImg {
-        width: 300px;
-        height: 180px;
-        object-fit: cover;
-        background-color: #eee;
-        @media screen and (max-width: @breakpoints-md) {
-          width: 100%;
-        }
-      }
-    }
-    &-footer {
-      display: flex;
-      align-items: center;
-      height: 36px;
-      .time {
-        color: #666;
-        font-size: 14px;
-        margin-right: 10px;
-      }
-      .tag {
-        color: #666;
-        font-size: 14px;
-        margin-right: 10px;
-      }
-      .type {
-        color: #666;
-        font-size: 14px;
-        margin-right: 10px;
       }
     }
   }

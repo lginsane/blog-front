@@ -32,7 +32,10 @@ export default {
 
   css: ['@/assets/css/index.less'],
 
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    { src:"@/plugins/element-ui.js", ssr:true },
+    { src:"@/plugins/vue-infinite-scroll.js", ssr:false },
+  ],
 
   components: true,
 

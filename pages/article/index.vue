@@ -3,16 +3,17 @@
     <div class="lg-container">
       <div class="lg-row">
         <div class="article-sidebar lg-col-md-15">
-          <UserInfo></UserInfo>
+          <user-info style="margin-bottom: 20px"></user-info>
+          <type-list></type-list>
         </div>
         <div class="article-container lg-col-md-45">
-          <List
+          <article-list
             :data="articleList"
             :load="initLoad"
             :loading="loading"
             :disabled="disabled"
             :no-more="noMore"
-          ></List>
+          ></article-list>
         </div>
       </div>
     </div>
@@ -22,12 +23,14 @@
 <script>
 import { ref, reactive, computed, onMounted } from 'vue'
 import UserInfo from '@/components/page/UserInfo/index.vue'
-import List from '@/components/page/List/index.vue'
+import ArticleList from '@/components/page/ArticleList/index.vue'
+import TypeList from '@/components/page/TypeList/index.vue'
 export default {
   name: 'ArticlePage',
   components: {
     UserInfo,
-    List,
+    ArticleList,
+    TypeList
   },
   setup() {
     const articleList = ref([])

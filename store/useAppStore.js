@@ -7,7 +7,12 @@ export const useAppStore = defineStore('app', {
       useInfo: {
         name: '迷之de小孩灬',
       },
-      highLightIndex: 1
+      highLightIndex: 1,
+      typeIndex: 0,
+      typeList: [
+        { name: '全部', value: '/' },
+        { name: '全部1', value: '/qb' },
+      ]
     }
   },
   actions: {
@@ -16,6 +21,12 @@ export const useAppStore = defineStore('app', {
     },
     setHighLightIndex(val) {
       this.highLightIndex = val
+    },
+    setTypeIndex(val) {
+      this.typeIndex = val
+    },
+    setTypeList(val) {
+      this.typeList = val
     }
   },
 })

@@ -130,7 +130,7 @@ export default {
     ])
     const handleSearch = () => {}
     const handleCancel = () => {
-      isOpen.value = false
+      switchOpenNav()
     }
     return {
       isOpen,

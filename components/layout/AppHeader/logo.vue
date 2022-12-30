@@ -1,6 +1,6 @@
 <template>
   <div class="app-logo">
-    {{ blogName }}
+    <router-link to="/">{{ blogName }}</router-link>
   </div>
 </template>
 

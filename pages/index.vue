@@ -15,6 +15,6 @@ export default {
 
 <style lang="less">
 .home-page {
-  height: 1500px;
+  height: 100%;
 }
 </style>

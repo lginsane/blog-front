@@ -16,30 +16,32 @@
         <nuxt-link
           :to="nav.path"
           class="app-menu-item__link"
-          :active-class="activePath === nav.path ? 'active' : ''"
+          active-class="active"
         >
           {{ nav.name }}
         </nuxt-link>
       </li>
     </ul>
-    <div v-if="isOpen" class="app-menu-screen">
-      <ul class="app-menu-screen-list">
-        <li
-          v-for="nav in navList"
-          :key="nav.path"
-          class="app-menu-screen-item"
-          @click="switchOpenNav"
-        >
-          <nuxt-link
-            :to="nav.path"
-            class="app-menu-screen-item__link"
-            :active-class="activePath === nav.path ? 'active' : ''"
+    <transition name="fade">
+      <div v-if="isOpen" class="app-menu-screen">
+        <ul class="app-menu-screen-list">
+          <li
+            v-for="nav in navList"
+            :key="nav.path"
+            class="app-menu-screen-item"
+            @click="switchOpenNav"
           >
-            {{ nav.name }}
-          </nuxt-link>
-        </li>
-      </ul>
-    </div>
+            <nuxt-link
+              :to="nav.path"
+              class="app-menu-screen-item__link"
+              active-class="active"
+            >
+              {{ nav.name }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -63,10 +65,6 @@ export default {
       )
     }
     const navList = ref([
-      {
-        name: '首页',
-        path: '/',
-      },
       {
         name: '技术馆',
         path: '/article',
@@ -133,11 +131,11 @@ export default {
         height: 2px;
         width: 0;
         border-radius: 2px;
-        background: @color;
+        background: @colorPrimary;
         transition: all 0.3s ease;
       }
       &:hover {
-        background: @color;
+        background: @colorPrimary;
         background-clip: text;
         -webkit-background-clip: text;
         color: @colorPrimary;
@@ -149,8 +147,8 @@ export default {
       &.active {
         color: transparent;
         color: @colorPrimary;
-        font-weight: 600;
-        background: @color;
+        // font-weight: 600;
+        background: @colorPrimary;
         -webkit-background-clip: text;
         &::after {
           width: 100%;
@@ -161,10 +159,9 @@ export default {
   }
   &-screen {
     position: fixed;
-    // top: calc(@heightHeader + 1px);
-    // height: calc(100vh - @heightHeader - 1px);
+    top: calc(@heightHeader + 1px);
+    height: calc(100vh - @heightHeader - 1px);
     right: 0;
-    bottom: 0;
     left: 0;
     padding: 0 32px;
     width: 100%;
@@ -172,6 +169,9 @@ export default {
     overflow-y: auto;
     transition: background-color 0.5s;
     pointer-events: auto;
+    @media screen and (min-width: @breakpoints-md) {
+      display: none;
+    }
     &-list {
       display: flex;
       flex-direction: column;
@@ -184,7 +184,7 @@ export default {
         line-height: @heightHeader;
         position: relative;
         text-align: center;
-        font-size: 16px;
+        font-size: 15px;
         cursor: pointer;
         transition: color 0.25s ease;
         &::after {
@@ -207,7 +207,7 @@ export default {
             width: 100%;
             left: 0;
             height: 2px;
-            background-image: @color;
+            background: @colorPrimary;
           }
         }
       }

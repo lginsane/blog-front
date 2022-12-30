@@ -7,11 +7,15 @@ export const useAppStore = defineStore('app', {
       useInfo: {
         name: '迷之de小孩灬',
       },
+      highLightIndex: 0
     }
   },
   actions: {
     setIsMobile(val) {
       this.isMobile = val
     },
+    setHighLightIndex(val) {
+      this.highLightIndex = val
+    }
   },
 })

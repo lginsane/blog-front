@@ -141,8 +141,7 @@ export default {
     right: 0;
     width: 4px;
     height: 100%;
-    // background-color: @colorPrimary;
-    background: @colorCol;
+    background-color: @colorPrimary;
   }
 }
 </style>

@@ -7,7 +7,7 @@ export const useAppStore = defineStore('app', {
       useInfo: {
         name: '迷之de小孩灬',
       },
-      highLightIndex: 0
+      highLightIndex: 1
     }
   },
   actions: {

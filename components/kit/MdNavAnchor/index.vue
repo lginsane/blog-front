@@ -98,15 +98,12 @@ export default {
   }
 
   &:hover span {
-    color: @colorSuccess;
-    @colorActive();
-
+    color: @colorPrimary;
     text-decoration: underline;
   }
 
   &.active span {
-    color: @colorSuccess;
-    @colorActive();
+    color: @colorPrimary;
   }
 }
 </style>

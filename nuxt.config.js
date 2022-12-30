@@ -98,7 +98,7 @@ export default {
     refreshOnResize: true,
   },
   loading: {
-    color: 'red',
-    height: '4px',
+    color: '#42d392',
+    height: '2px',
   },
 }

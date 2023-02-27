@@ -3,7 +3,7 @@
     <div class="lg-container">
       <section class="banner">
         <h1><rotating-text :words="words" width="2.4em" />的个人博客</h1>
-        <p class="description">回忆美好，充实未来！</p>
+        <p class="description">努力不一定成功，不努力一定不会成功！</p>
         <nuxt-link class="go-article" to="/article">进入博客 <i class="iconfont icon-youjiantou"></i></nuxt-link>
       </section>
       <section class="introduce">
@@ -93,6 +93,7 @@ export default {
     align-items: center;
     background-color: #fff;
     padding: 50px 0;
+    margin-bottom: 100px;
     &-title {
       font-size: 32px;
       color: @colorTextTitle;

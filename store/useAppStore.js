@@ -10,8 +10,10 @@ export const useAppStore = defineStore('app', {
       highLightIndex: 1,
       typeIndex: 0,
       typeList: [
-        { name: '全部', value: '/' },
-        { name: '全部1', value: '/qb' },
+        { name: '全部', value: '/', number: 5 },
+        { name: '入门知识', value: '/rm', number: 2 },
+        { name: '工具', value: '/gj', number: 1 },
+        { name: '总结', value: '/zj', number: 2 }
       ]
     }
   },

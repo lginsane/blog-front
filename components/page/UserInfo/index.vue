@@ -14,7 +14,8 @@
           :key="index"
           class="links-item"
         >
-          <span class="icon"></span>
+          <!-- <span class="icon"></span> -->
+          <i class="icon iconfont" :style="{color: link.color}" :class="link.icon"></i>
           <span class="name">{{ link.title }}</span>
         </div>
       </div>
@@ -37,24 +38,28 @@ export default {
       signature: '原谅我一生放荡不羁，爱自由！',
       links: [
         {
-          title: 'github',
+          title: '微信',
           url: '',
-          icon: '',
+          icon: 'icon-weixin',
+          color: '#49b75e'
+        },
+        {
+          title: '掘金',
+          url: '',
+          icon: 'icon-juejin',
+          color: '#0084ff'
         },
         {
           title: 'github',
           url: '',
-          icon: '',
+          icon: 'icon-github',
+          color: '#000'
         },
         {
-          title: 'github',
+          title: 'gitee',
           url: '',
-          icon: '',
-        },
-        {
-          title: 'github',
-          url: '',
-          icon: '',
+          icon: 'icon-gitee',
+          color: '#bf0c07'
         },
       ],
     })
@@ -111,11 +116,15 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       .icon {
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
       }
       .name {
         color: #666;

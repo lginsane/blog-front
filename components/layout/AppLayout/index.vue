@@ -38,6 +38,7 @@ export default {
     padding-bottom: @heightFooter + 20;
     margin-bottom: -@heightFooter;
     min-height: 100vh;
+    background: url(https://file.jiangly.com/images/34207572.jpg)!important;
   }
 }
 </style>

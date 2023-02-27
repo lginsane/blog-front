@@ -3,7 +3,7 @@
     <ul v-if="typeList.length > 0" class="card-category-list" @mouseleave="checkPathname">
       <li v-for="(nav, index) in typeList" :key="index" class="category-item" @mouseover="changeType(index)">
         <router-link :to="`/${parentPath}${nav.value === '/' ? nav.value : '/' + nav.value}`" exact active-class="current" class="category-item-link">
-          {{ nav.name }}
+          {{ nav.name }}（{{ nav.number }}）
         </router-link>
       </li>
       <li :style="{ top: typeIndex * 40 + 'px' }" class="category-item-slider"></li>

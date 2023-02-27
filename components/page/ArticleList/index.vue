@@ -19,12 +19,27 @@
         <el-divider></el-divider>
         <div class="article-item-content">
           <div class="desc">{{ item.desc }}</div>
-          <div class="coverImg"></div>
+          <div class="coverImg">
+            <img :src="item.coverImg" />
+          </div>
         </div>
         <div class="article-item-footer">
-          <div class="time">2020-10-10</div>
-          <div class="type">分类</div>
-          <div class="tag">标签</div>
+          <div class="time inline-flex items-center">
+            <i class="iconfont icon-time"></i>
+            {{ item.time }}
+          </div>
+          <div v-if="item.types && item.types.length" class="type-box inline-flex items-center">
+            <i class="iconfont icon-fenlei"></i>
+            <span v-for="(type, j) in item.types" :key="j" class="type">
+             {{type}}
+            </span>
+          </div>
+          <div v-if="item.tags && item.tags.length" class="tag-box inline-flex items-center">
+            <i class="iconfont icon-biaoqian_o"></i>
+            <span v-for="(tag, i) in item.tags" :key="i" class="tag">
+              {{tag}}
+            </span>
+          </div>
         </div>
       </li>
     </ul>
@@ -205,7 +220,11 @@ export default {
         margin-left: 15px;
         object-fit: cover;
         background-color: #eee;
-
+        img {
+          width: 100%;
+          height: 100%;
+          display: inline-block;
+        }
         @media screen and (max-width: @breakpoints-md) {
           width: 100%;
           margin-left: 0;
@@ -218,6 +237,10 @@ export default {
       display: flex;
       align-items: center;
       margin-top: 15px;
+
+      .iconfont {
+        margin-right: 3px;
+      }
 
       .time {
         color: #666;

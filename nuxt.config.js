@@ -30,7 +30,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['@/assets/css/index.less'],
+  css: [
+    '@/assets/css/index.less',
+    '@/assets/css/iconfont.css'
+  ],
 
   plugins: [
     { src:"@/plugins/element-ui.js", ssr:true },

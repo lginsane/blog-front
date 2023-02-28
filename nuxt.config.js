@@ -104,4 +104,9 @@ export default {
     color: '#42d392',
     height: '2px',
   },
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+    timing: false
+  }
 }

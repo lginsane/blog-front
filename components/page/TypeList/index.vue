@@ -42,11 +42,17 @@ export default {
      * @desc 获取当前路径
      */
     checkPathname() {
+
       const currentPath = this.$route.path
       const categoryPath = currentPath.split('/')[2]
+      console.log('currentPath', currentPath)
+      console.log('categoryPath', categoryPath)
+      console.log('parentPath', this.parentPath)
       if (categoryPath) {
         this.typeList.forEach((item, index) => {
+          console.log(`/${this.parentPath}/${item.value}`, currentPath)
           if (`/${this.parentPath}/${item.value}` === currentPath) {
+            console.log(item, index)
             this.changeType(index)
           }
         })

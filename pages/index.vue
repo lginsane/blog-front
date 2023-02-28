@@ -11,7 +11,7 @@
         <p class="introduce-description">主要介绍网站各个模块用到了哪些技术</p>
         <ul class="introduce-box">
           <li v-for="(info, index) in introduceList" :key="index">
-            <h6 class="title">- {{ info.title }}</h6>
+            <h6 class="title">{{ info.title }}</h6>
             <p class="content">{{ info.content }}</p>
           </li>
         </ul>
@@ -105,14 +105,15 @@ export default {
       margin-bottom: 10px;
     }
     &-box {
+      list-style-type: disc;
       .title {
         font-size: 16px;
-        color: @colorTextTitle;
+        color: @colorText-1;
         margin-top: 24px;
       }
       .content {
         font-size: 14px;
-        color: @colorText-1;
+        color: @colorText-2;
         margin-top: 10px;
       }
     }

@@ -16,7 +16,7 @@
             </router-link>
           </div>
         </div>
-        <el-divider></el-divider>
+        <el-divider class="h"></el-divider>
         <div class="article-item-content">
           <div class="desc">{{ item.desc }}</div>
           <div class="coverImg">
@@ -190,12 +190,37 @@ export default {
     margin-bottom: 5px;
     border-radius: 4px;
     padding: 20px;
-
+    &:hover {
+      .h::after {
+        width: 100%;
+      }
+    }
     &-header {
+      &:hover {
+        .router-title {
+          color: @colorPrimary;
+          @colorActive();
+        }
+      }
       .title {
         font-size: 24px;
         font-weight: bold;
         color: #333;
+        cursor: pointer;
+      }
+    }
+
+    .h {
+      position: relative;
+      &::after {
+        content: '';
+        height: 2px;
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        width: 0;
+        background-color: @colorPrimary;
+        transition: width 0.3s;
       }
     }
 
@@ -252,12 +277,24 @@ export default {
         color: #666;
         font-size: 14px;
         margin-right: 10px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+          transform: scale(1.05);
+        }
       }
 
       .type {
         color: #666;
         font-size: 14px;
         margin-right: 10px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+          transform: scale(1.05);
+        }
       }
     }
   }

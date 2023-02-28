@@ -1,11 +1,10 @@
 <template>
   <div class="empty-container">
-    <div class="empty-wrap">{{ title }}</div>
+    <div class="empty-wrap">{{ text }}</div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
 export default {
   name: 'LgEmpty',
   props: {
@@ -14,11 +13,18 @@ export default {
       default: '暂无数据',
     },
   },
-  setup() {
-    const textArr = ref()
-    return {
-      textArr,
-    }
-  },
+  setup() {},
 }
 </script>
+
+<style lang="less">
+.empty-container {
+  padding: 30px 0;
+  width: 100%;
+  text-align: center;
+  .empty-wrap {
+    font-size: 14px;
+    color: @colorText-2;
+  }
+}
+</style>

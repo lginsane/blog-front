@@ -12,7 +12,7 @@ export default {
   name: 'AppLogo',
   setup() {
     const appStore = useAppStore()
-    const blogName = ref(appStore.useInfo.name)
+    const blogName = ref(appStore.bloggerInfo.name)
     return {
       blogName,
     }

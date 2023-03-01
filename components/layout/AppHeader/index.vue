@@ -5,7 +5,10 @@
         <AppLogo></AppLogo>
         <div class="app-header-content">
           <AppSearch></AppSearch>
-          <AppMenu></AppMenu>
+          <div class="app-header-wrap">
+            <AppMenu style="margin-right: 10px"></AppMenu>
+            <AppUser></AppUser>
+          </div>
         </div>
       </div>
     </div>
@@ -16,12 +19,14 @@
 import AppMenu from './menu'
 import AppSearch from './search'
 import AppLogo from './logo'
+import AppUser from './user'
 export default {
   name: 'AppHeader',
   components: {
     AppMenu,
     AppSearch,
     AppLogo,
+    AppUser
   },
 }
 </script>
@@ -48,6 +53,11 @@ export default {
     justify-content: flex-end;
     align-items: center;
     flex-grow: 1;
+  }
+  &-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 </style>

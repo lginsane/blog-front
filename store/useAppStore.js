@@ -4,7 +4,8 @@ export const useAppStore = defineStore('app', {
   state: () => {
     return {
       isMobile: false,
-      useInfo: {
+      // 博主信息
+      bloggerInfo: {
         name: '迷之de小孩灬',
       },
       highLightIndex: 1,

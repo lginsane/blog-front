@@ -38,6 +38,7 @@ export default {
   plugins: [
     { src:"@/plugins/element-ui.js", ssr:true },
     { src:"@/plugins/vue-infinite-scroll.js", ssr:false },
+    { src: '~/plugins/api.js', ssr: true },
   ],
 
   components: true,
@@ -70,10 +71,19 @@ export default {
   axios: {
     proxy: process.env.NODE_ENV === 'development',
     baseURL: globalConfig.baseURL,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json; charset=UTF-8'
+    },
   },
   proxy: {
-    '/api': {
+    '/lg': {
       target: globalConfig.baseURL,
+      changeOrigin: true,
+    },
+    '/random': {
+      target: 'https://api.r10086.com/img-api.php',
       changeOrigin: true,
     },
   },
@@ -108,5 +118,5 @@ export default {
     port: 8000, // default: 3000
     host: '0.0.0.0', // default: localhost,
     timing: false
-  }
+  },
 }

@@ -1,39 +1,48 @@
 <template>
   <div class="signIn-page">
     <div class="lg-container">
-      <h3 class="header">登录</h3>
-      <v-form v-model="formData" :rules="formRules" ref="formRef">
-        <v-form-item>
-          <input
-            v-model="formData.username"
-            class="common-input"
-            type="text"
-            placeholder="用户名、或邮箱"
-            style="width: 100%"
-            @keyup.enter="login"
-          />
-        </v-form-item>
-        <v-form-item>
-          <input
-            v-model="formData.password"
-            class="common-input"
-            type="password"
-            placeholder="密码"
-            style="width: 100%"
-            @keyup.enter="login"
-          />
-        </v-form-item>
-        <!-- <v-form-item>
-          <span
-            style="font-size: 12px; color: #999; cursor: pointer"
-            @click="handleForgetPwd"
-            >忘记密码？</span
-          >
-        </v-form-item> -->
-      </v-form>
-      <div class="footer">
-        <el-button :loading="isLoginLoading" @click="login">确定登录</el-button>
-        <el-button @click="goToRegister">我要注册</el-button>
+      <div class="signIn-box shadow-block">
+        <h1 class="page-title">登录</h1>
+        <el-form
+          ref="formRef"
+          v-model="formData"
+          :rules="formRules"
+
+          class="signIn-form"
+        >
+          <el-form-item>
+            <el-input
+              v-model="formData.username"
+              class="common-input"
+              type="text"
+              placeholder="用户名或邮箱"
+              style="width: 100%"
+              @keyup.enter="login"
+            />
+          </el-form-item>
+          <el-form-item>
+            <el-input
+              v-model="formData.password"
+              class="common-input"
+              type="password"
+              placeholder="密码"
+              style="width: 100%"
+              @keyup.enter="login"
+            />
+          </el-form-item>
+          <el-form-item class="footer">
+            <el-button
+              :loading="isLoginLoading"
+              type="primary"
+              @click="login"
+              >确定登录</el-button
+            >
+            <el-button @click="goToRegister">我要注册</el-button>
+            <!-- <nuxt-link class="forget-btn" to="/forget_pwd">
+              忘记密码？
+            </nuxt-link> -->
+          </el-form-item>
+        </el-form>
       </div>
     </div>
   </div>
@@ -48,6 +57,7 @@ export default {
         username: '',
         password: '',
       },
+      formRules: {},
       isLoginLoading: false,
     }
   },
@@ -98,3 +108,31 @@ export default {
   },
 }
 </script>
+
+<style lang="less">
+.signIn-page {
+  height: 100%;
+  .signIn-box {
+    background-color: #fff;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .page-title {
+      font-size: 32px;
+      color: @colorTextTitle;
+      margin-bottom: 50px;
+    }
+    .signIn-form {
+      width: 500px;
+
+      .forget-btn {
+        display: block;
+        color: @colorText-2;
+      }
+    }
+  }
+}
+</style>

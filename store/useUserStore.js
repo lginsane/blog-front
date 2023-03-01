@@ -5,7 +5,8 @@ export const useUserStore = defineStore('user', {
     return {
       // 用户信息
       userInfo: {
-        name: '测试用户'
+        name: '测试用户',
+        avatar: 'https://lginsane.github.io/images/avatar.jpeg'
       }
     }
   },

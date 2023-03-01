@@ -34,12 +34,12 @@ export default {
         {
           id: 1,
           title: '盘点我的2022',
-          readVolume: 3000,
+          readVolume: 17,
         },
         {
           id: 2,
           title: '盘点我的2021',
-          readVolume: 2000,
+          readVolume: 14,
         },
       ],
     }

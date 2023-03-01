@@ -37,6 +37,7 @@ export default {
     const navList = computed(() => {
       return compileMd(props.content || '')
     })
+    console.log(navList, 'navList')
     const scrollHandler = () => {
       const mdAnchorNavWrap = document.getElementById('mdAnchorNavWrap')
       const mdAnchorFloatBar = document.getElementById('mdAnchorFloatBar')

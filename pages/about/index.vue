@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="about-box">
+      <div class="about-box shadow-block">
         <section>
           <h3>基本信息</h3>
           <ul>

@@ -64,7 +64,7 @@ export default {
   },
   setup() {
     const formData = reactive({
-      typeId: ['rm'],
+      typeId: ['zj'],
       tagId: ['zj'],
       keyword: ''
     })
@@ -122,15 +122,15 @@ export default {
           time: '2023-01-03 15:33:30',
           coverImg: require('@/assets/images/article/summarize-2.webp'),
         },
-        {
-          id: 'summarize-3',
-          title: 'Pinia 入门',
-          desc: 'Vue 的存储库，允许跨组件/页面共享状态',
-          types: ['入门知识'],
-          tags: ['Vue'],
-          time: '2022-05-06 16:17:59',
-          coverImg: require('@/assets/images/article/pinia.jpg'),
-        },
+        // {
+        //   id: 'summarize-3',
+        //   title: 'Pinia 入门',
+        //   desc: 'Vue 的存储库，允许跨组件/页面共享状态',
+        //   types: ['入门知识'],
+        //   tags: ['Vue'],
+        //   time: '2022-05-06 16:17:59',
+        //   coverImg: require('@/assets/images/article/pinia.jpg'),
+        // },
         {
           id: 'summarize-1',
           title: '盘点我的2021',
@@ -140,24 +140,24 @@ export default {
           time: '2021-12-29 15:33:30',
           coverImg: require('@/assets/images/article/summarize-1.webp'),
         },
-        {
-          id: 'mongodb',
-          title: 'MongoDB入门',
-          desc: '基于分布式文件存储的数据库',
-          types: ['入门知识'],
-          tags: ['数据库'],
-          time: '2021-11-12 18:34:12',
-          coverImg: require('@/assets/images/article/mongoDB.jpeg'),
-        },
-        {
-          id: 'git',
-          title: 'Git 总结',
-          desc: '免费的开源的分布式版本控制系统',
-          types: ['工具'],
-          tags: ['Git'],
-          time: '2021-10-31 20:19:05',
-          coverImg: require('@/assets/images/article/git.png'),
-        },
+        // {
+        //   id: 'mongodb',
+        //   title: 'MongoDB入门',
+        //   desc: '基于分布式文件存储的数据库',
+        //   types: ['入门知识'],
+        //   tags: ['数据库'],
+        //   time: '2021-11-12 18:34:12',
+        //   coverImg: require('@/assets/images/article/mongoDB.jpeg'),
+        // },
+        // {
+        //   id: 'git',
+        //   title: 'Git 总结',
+        //   desc: '免费的开源的分布式版本控制系统',
+        //   types: ['工具'],
+        //   tags: ['Git'],
+        //   time: '2021-10-31 20:19:05',
+        //   coverImg: require('@/assets/images/article/git.png'),
+        // },
       ]
       loading.value = false
     }
@@ -196,9 +196,12 @@ export default {
     //   color: @colorPrimary;
     // }
     .search-btn {
-      margin-left: 30px;
+      margin-left: 20px;
       display: flex;
       align-items: center;
+      background: @colorAssist;
+      border: none;
+      color: #fff;
       .icon-search {
         margin-right: 10px;
       }

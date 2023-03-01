@@ -1,6 +1,6 @@
 <template>
   <div class="user-app-wrap">
-    <div v-if="userInfo" class="user-content">
+    <div v-if="userInfo && userInfo.name" class="user-content">
       <img v-if="userInfo.avatar" :src="userInfo.avatar" alt="">
       <span class="name">{{ userInfo.name }}</span>
     </div>
@@ -25,7 +25,7 @@ export default {
 <style lang="less">
   .user-app-wrap {
     .user-content {
-      font-size: 12px;
+      font-size: 13px;
       cursor: pointer;
       color: @color;
       .name {

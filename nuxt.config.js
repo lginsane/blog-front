@@ -36,9 +36,12 @@ export default {
   ],
 
   plugins: [
-    { src:"@/plugins/element-ui.js", ssr:true },
-    { src:"@/plugins/vue-infinite-scroll.js", ssr:false },
+    { src:"@/plugins/element-ui.js", ssr: true },
+    { src:"@/plugins/vue-infinite-scroll.js", ssr: false },
+    { src: '@/plugins/icons.js', ssr: true },
     { src: '~/plugins/api.js', ssr: true },
+    { src: '@/plugins/format', ssr: true },
+    { src: '~/plugins/directive/loading/index.js', ssr: false },
   ],
 
   components: true,

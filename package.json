@@ -36,10 +36,13 @@
     "marked": "^1.1.1",
     "nuxt": "^2.15.8",
     "pinia": "^2.0.23",
+    "svg-sprite-loader": "^6.0.11",
     "vue": "^2.7.10",
     "vue-infinite-scroll": "^2.0.2",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-svg-icon": "^1.2.9",
+    "vue-template-compiler": "^2.7.10",
+    "xml-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
@@ -60,6 +63,7 @@
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-vue": "^1.4.0",
-    "stylelint-config-standard": "^28.0.0"
+    "stylelint-config-standard": "^28.0.0",
+    "xml-loader": "^1.2.1"
   }
 }

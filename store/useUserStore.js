@@ -6,7 +6,7 @@ export const useUserStore = defineStore('user', {
       // 用户信息
       userInfo: {
         name: '测试用户',
-        avatar: 'https://lginsane.github.io/images/avatar.jpeg'
+        avatar: require('@/assets/images/avatar.jpg'),
       }
     }
   },

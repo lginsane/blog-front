@@ -33,7 +33,7 @@ export default {
   },
   setup() {
     const userInfo = reactive({
-      avatar: require('@/assets/images/avatar.jpg'),
+      avatar: 'https://lginsane.github.io/images/avatar.jpeg',
       name: '迷之de小孩灬',
       signature: '努力不一定成功，不努力一定不会成功！',
       links: [
